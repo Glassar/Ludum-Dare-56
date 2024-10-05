@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private Transform playerBody;
+    [SerializeField] private Transform playerHead;
+    [SerializeField] private ParticleSystem gunParticles;
+
     public float speed = 5f;
     public float sprintSpeed = 8f;
 
@@ -30,8 +34,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     private Camera camera;
-    [SerializeField] private Transform playerBody;
-    [SerializeField] private Transform playerHead;
+
     private float rotationX;
     private float rotationY;
 
@@ -78,14 +81,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Movement();
         OxygenController();
 
-        healthbar.localScale = new Vector3(health / maxHealth, 1, 1);
-        oxygenBar.localScale = new Vector3(oxygen / maxOxygen, 1, 1);
-
+        if (healthbar != null)
+            healthbar.localScale = new Vector3(health / maxHealth, 1, 1);
+        if (oxygenBar != null)
+            oxygenBar.localScale = new Vector3(oxygen / maxOxygen, 1, 1);
 
         Interact();
+        FireGun();
+    }
+
+    private void FixedUpdate(){
+        Movement();
     }
 
     private void Movement()
@@ -163,6 +171,17 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+
+    private void FireGun(){
+        RaycastHit hit;
+        if (attack.WasPressedThisFrame()) {
+            gunParticles.Play();
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player")))){
+                Debug.Log($"hit: {hit.transform.name}");
+            }
         }
     }
 

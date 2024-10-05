@@ -14,7 +14,7 @@ public class LagBehindTarget : MonoBehaviour
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         m_animateTarget.transform.position = Vector3.Lerp(m_animateTarget.position, m_followTarget.position, Time.deltaTime * m_followSpeed);
         m_animateTarget.rotation = Quaternion.Lerp(m_animateTarget.rotation, m_followTarget.rotation, Time.deltaTime * m_rotateSpeed);
