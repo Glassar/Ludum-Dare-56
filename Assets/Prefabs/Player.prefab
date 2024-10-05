@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5857753889480921307}
   - component: {fileID: 1980820549235623361}
   - component: {fileID: 5137820872005012427}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,6 +156,13 @@ MonoBehaviour:
   sprintSpeed: 8
   lookSpeed: 60
   lookYLimit: 90
+  maxHealth: 100
+  healthbar: {fileID: 0}
+  maxOxygen: 1000
+  oxygenBar: {fileID: 0}
+  oxygenConsumptionRate: 1
+  sprintOxygenConsumption: 5
+  suffocationDamage: 2
 --- !u!1 &3034872382551633738
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +175,7 @@ GameObject:
   - component: {fileID: 4991655920672985857}
   - component: {fileID: 5991413949860219623}
   - component: {fileID: 4428777314955053428}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -183,13 +190,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3034872382551633738}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6819980818455830798}
-  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4991655920672985857
 Camera:
   m_ObjectHideFlags: 0
