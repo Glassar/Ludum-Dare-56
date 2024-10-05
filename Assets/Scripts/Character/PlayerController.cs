@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+        Movement();
         OxygenController();
 
         healthbar.localScale = new Vector3(health / maxHealth, 1, 1);
@@ -82,10 +82,6 @@ public class PlayerController : MonoBehaviour
 
 
         Interact();
-    }
-
-    private void LateUpdate(){
-        Movement();
     }
 
     private void Movement()
