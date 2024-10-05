@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1747487087520721786}
   - component: {fileID: 8295589481012059590}
   - component: {fileID: 4646497748755240091}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1324,7 +1324,7 @@ GameObject:
   - component: {fileID: 219870883933047154}
   - component: {fileID: 6817250659519688787}
   - component: {fileID: 7713536968483972427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,7 +2635,7 @@ GameObject:
   - component: {fileID: 3907030972928150874}
   - component: {fileID: 2462045256198928046}
   - component: {fileID: 5087141837256430360}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3946,7 +3946,7 @@ GameObject:
   - component: {fileID: 3457371398769697392}
   - component: {fileID: 7520497039329552917}
   - component: {fileID: 3780264265246410318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5253,7 +5253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5879260939026202058}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Corridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

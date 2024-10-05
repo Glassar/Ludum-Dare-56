@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     InputAction sprint;
     InputAction interact;
     InputAction attack;
-    float groundedDistance = 1.06f;
+    float groundedDistance = 1.04f;
     public float jumpForce = 100;
     InputAction jump;
 
@@ -125,11 +125,12 @@ public class PlayerController : MonoBehaviour
 
         if (jump.IsPressed())
         {
-            Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground"));
-            if (hit.distance < groundedDistance)
+
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground")) && hit.distance < groundedDistance)
             {
                 rb.AddForce(Vector3.up * jumpForce);
             }
+            print(hit.distance);
         }
 
         Vector3 movement = forward * moveInput[1] + right * moveInput[0];

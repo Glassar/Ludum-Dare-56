@@ -1190,7 +1190,7 @@ MonoBehaviour:
   speed: 5
   sprintSpeed: 8
   lookSpeed: 100
-  lookYLimit: 90
+  lookYLimit: 70
   maxHealth: 100
   healthbar: {fileID: 0}
   oxygen: 0
