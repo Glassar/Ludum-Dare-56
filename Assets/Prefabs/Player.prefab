@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1909939773589347767}
   - component: {fileID: 2809623370379435409}
   - component: {fileID: 5857753889480921307}
-  - component: {fileID: 4347572943102138880}
+  - component: {fileID: 1980820549235623361}
+  - component: {fileID: 5137820872005012427}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,7 +113,34 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4347572943102138880
+--- !u!54 &1980820549235623361
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203937526801442877}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &5137820872005012427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e700852511344094bb56522a630d0637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  sprintSpeed: 8
+  lookSpeed: 60
+  lookYLimit: 90
 --- !u!1 &3034872382551633738
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,13 +183,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3034872382551633738}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6819980818455830798}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
 --- !u!20 &4991655920672985857
 Camera:
   m_ObjectHideFlags: 0
