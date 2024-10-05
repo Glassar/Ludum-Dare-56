@@ -1,10 +1,10 @@
 using System;
+using Rellac.Audio;
 using TMPro;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
-
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform playerBody;
     [SerializeField] private Transform playerHead;
     [SerializeField] private ParticleSystem gunParticles;
+
+    [SerializeField] private SoundManager soundManager;
 
     public float speed = 5f;
     public float sprintSpeed = 8f;
@@ -49,8 +51,10 @@ public class PlayerController : MonoBehaviour
     public float sprintOxygenConsumption = 5f;
     public float suffocationDamage = 2f;
 
-    public float rayLimit = 10;
+    public float rayLimit = 1;
     public int cokes = 0;
+
+    public float oxygenFireCost = 25;
 
     InputAction move;
     InputAction look;
@@ -77,16 +81,13 @@ public class PlayerController : MonoBehaviour
         jump = InputSystem.actions.FindAction("Jump");
 
         Reset();
+
+        soundManager.PlayLoopingAudio("Ambient1", transform);
     }
 
     private void Update()
     {
         OxygenController();
-
-        if (healthbar != null)
-            healthbar.localScale = new Vector3(health / maxHealth, 1, 1);
-        if (oxygenBar != null)
-            oxygenBar.localScale = new Vector3(oxygen / maxOxygen, 1, 1);
 
         Interact();
         FireGun();
@@ -125,7 +126,6 @@ public class PlayerController : MonoBehaviour
         if (jump.IsPressed())
         {
             Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground"));
-            print(hit.distance);
             if (hit.distance < groundedDistance)
             {
                 rb.AddForce(Vector3.up * jumpForce);
@@ -183,13 +183,15 @@ public class PlayerController : MonoBehaviour
     private void FireGun()
     {
         RaycastHit hit;
-        if (attack.WasPressedThisFrame())
+        if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost)
         {
             gunParticles.Play();
             if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
             {
                 Debug.Log($"hit: {hit.transform.name}");
             }
+
+            oxygen -= oxygenFireCost;
         }
     }
 

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b334ffb689e053b4f9ff1274edbd19e7, type: 3}
   m_Name: Sound Manager
   m_EditorClassIdentifier: 
-  clipGroups: []
+  clipGroups:
+  - id: Ambient1
+    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 94ffb136a046cc741ab5f27a57ac1d0c, type: 3}

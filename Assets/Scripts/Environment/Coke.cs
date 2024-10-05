@@ -10,7 +10,7 @@ public class Coke : Interactables
     private MeshRenderer mesh;
     private Boolean highlighted = false;
     private float timeOut;
-    public float maxTimeOut = 0.3f;
+    public float maxTimeOut = 0.1f;
 
     void Start()
     {
