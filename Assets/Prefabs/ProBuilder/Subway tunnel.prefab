@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8539380334633302283}
   - component: {fileID: 8104673552420642954}
   - component: {fileID: 3006384822029429068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Subway tunnel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

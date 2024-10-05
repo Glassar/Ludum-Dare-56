@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
     InputAction sprint;
     InputAction interact;
     InputAction attack;
+    float groundedDistance = 1.1f;
+    float jumpForce = 1000f;
+    InputAction jump;
 
     private void Start()
     {
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
         sprint = InputSystem.actions.FindAction("Sprint");
         interact = InputSystem.actions.FindAction("Interact");
         attack = InputSystem.actions.FindAction("Attack");
+        jump = InputSystem.actions.FindAction("Jump");
 
         Reset();
     }
@@ -105,6 +109,16 @@ public class PlayerController : MonoBehaviour
         rotationY += -lookInput[1] * lookSpeed * Time.deltaTime;
         rotationY = Mathf.Clamp(rotationY, -lookYLimit, lookYLimit);
         playerHead.localRotation = Quaternion.Euler(rotationY, 0, 0);
+
+        RaycastHit hit;
+        if (jump.WasPressedThisFrame() && Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground")))
+        {
+
+            if (hit.distance < groundedDistance)
+            {
+                rb.AddForce(Vector3.up * jumpForce);
+            }
+        }
     }
 
     private void OxygenController()
