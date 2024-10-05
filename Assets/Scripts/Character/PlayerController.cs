@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            oxygen -= (sprint.IsPressed() ? sprintOxygenConsumption : oxygenConsumptionRate) * Time.deltaTime * 100f;
+            oxygen -= (sprint.IsPressed() ? sprintOxygenConsumption : oxygenConsumptionRate) * Time.deltaTime;
         }
     }
 
