@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -66,8 +67,7 @@ public class PlayerController : MonoBehaviour
         interact = InputSystem.actions.FindAction("Interact");
         attack = InputSystem.actions.FindAction("Attack");
 
-        health = maxHealth;
-        oxygen = maxOxygen;
+        Reset();
     }
 
     private void Update()
@@ -145,5 +145,12 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+
+    public void Reset()
+    {
+        health = maxHealth;
+        oxygen = maxOxygen;
+        cokes = 0;
     }
 }
