@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (interact.WasPressedThisFrame())
         {
-            if (Physics.Raycast(transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
             {
                 Interactables target = hit.transform.GetComponent<Interactables>();
                 if (target)
@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Might need optimizing
-            if (Physics.Raycast(transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
             {
                 Interactables target = hit.transform.GetComponent<Interactables>();
                 if (target)
