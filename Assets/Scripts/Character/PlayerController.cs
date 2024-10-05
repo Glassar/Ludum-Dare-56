@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     private Camera camera;
+    [SerializeField] private Transform playerBody;
+    [SerializeField] private Transform playerHead;
     private float rotationX;
     private float rotationY;
 
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private float health;
     public Transform healthbar;
 
-    private float oxygen;
+    public float oxygen;
     public float maxOxygen = 1000f;
     public Transform oxygenBar;
     public float oxygenConsumptionRate = 1f;
@@ -86,8 +88,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveInput = move.ReadValue<Vector2>();
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        Vector3 forward = playerBody.TransformDirection(Vector3.forward);
+        Vector3 right = playerBody.TransformDirection(Vector3.right);
 
         Vector3 movement = forward * moveInput[1] + right * moveInput[0];
 
@@ -98,11 +100,11 @@ public class PlayerController : MonoBehaviour
 
         rotationX += lookInput[0] * lookSpeed * Time.deltaTime;
 
-        transform.rotation = Quaternion.Euler(forward.x, rotationX, forward.z);
+        playerBody.rotation = Quaternion.Euler(forward.x, rotationX, forward.z);
 
         rotationY += -lookInput[1] * lookSpeed * Time.deltaTime;
         rotationY = Mathf.Clamp(rotationY, -lookYLimit, lookYLimit);
-        camera.transform.localRotation = Quaternion.Euler(rotationY, 0, 0);
+        playerHead.localRotation = Quaternion.Euler(rotationY, 0, 0);
     }
 
     private void OxygenController()
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            oxygen -= (sprint.IsPressed() ? sprintOxygenConsumption : oxygenConsumptionRate) * Time.deltaTime;
+            oxygen -= (sprint.IsPressed() ? sprintOxygenConsumption : oxygenConsumptionRate) * Time.deltaTime * 100f;
         }
     }
 

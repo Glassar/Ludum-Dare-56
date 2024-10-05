@@ -25,6 +25,8 @@
 
 /[Aa]ssets/Asset Packs/
 
+/[Pp]rojectSettings/Packages/com.unity.probuilder/Settings.json
+
 # Visual Studio cache directory
 .vs/
 .vsconfig
