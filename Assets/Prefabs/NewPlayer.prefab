@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6711806302006952005}
   - component: {fileID: 2192047269286718671}
   - component: {fileID: 6079885425240583477}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: crank_bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7290903659579276639}
   - component: {fileID: 6239468511426753703}
   - component: {fileID: 295829397083672861}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_followTarget: {fileID: 182627123166513706}
   m_animateTarget: {fileID: 7008250458885584304}
-  m_followSpeed: 10
-  m_rotateSpeed: 10
+  m_followSpeed: 8
+  m_rotateSpeed: 8
 --- !u!1 &676849793350828963
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 883587035333501925}
   - component: {fileID: 379207549286991953}
   - component: {fileID: 5926297264010350815}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: oxygen tank.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 6059473647440264910}
   - component: {fileID: 4283116484097973428}
   - component: {fileID: 4477127418552354990}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: valve_pin2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7008250458885584304}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: ld56-gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 6176582968790130582}
   - component: {fileID: 5112780186111593323}
   - component: {fileID: 9152058453542838005}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: firing_pipe.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 6272873381223066296}
   - component: {fileID: 3962783008539252542}
   - component: {fileID: 3715516356134674064}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: firing_pipe.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 2606792686772943404}
   - component: {fileID: 1728229550391108684}
   - component: {fileID: 6054161071397657949}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: tubeb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 2549289978209374292}
   - component: {fileID: 5151226105044587604}
   - component: {fileID: 40453540724029618}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 419689365237495085}
   - component: {fileID: 3953964639287349823}
   - component: {fileID: 7937897922528301295}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: hand_crank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1128,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2467084154589355698}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9ba01c5326a0d3741b34ea521ba1ac9d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1152,7 +1152,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2467084154589355698}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 80
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1168,7 +1168,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &8218407964163188183
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   gunParticles: {fileID: 8193472292844659580}
   speed: 5
   sprintSpeed: 8
-  lookSpeed: 60
+  lookSpeed: 100
   lookYLimit: 90
   maxHealth: 100
   healthbar: {fileID: 0}
@@ -1200,6 +1200,7 @@ MonoBehaviour:
   suffocationDamage: 2
   rayLimit: 10
   cokes: 0
+  jumpForce: 20000
 --- !u!1 &2709291428360868635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1212,7 @@ GameObject:
   - component: {fileID: 5259566334486369305}
   - component: {fileID: 1183933305803884812}
   - component: {fileID: 555340197845066500}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: dial_casing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1331,7 @@ GameObject:
   - component: {fileID: 5325342109056796239}
   - component: {fileID: 8896370126850316101}
   - component: {fileID: 2524798761994086856}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: valve_pin1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1417,7 @@ GameObject:
   - component: {fileID: 4786004921929558905}
   - component: {fileID: 8884812138913330169}
   - component: {fileID: 1441811422835624963}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: oxygen tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1500,7 +1501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3182098510959098184}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1534,7 +1535,7 @@ GameObject:
   - component: {fileID: 13912630507537688}
   - component: {fileID: 3892605541635967103}
   - component: {fileID: 3800009120240691299}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: valve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1621,7 @@ GameObject:
   - component: {fileID: 8821474997267202127}
   - component: {fileID: 5879770311171853344}
   - component: {fileID: 997617861403292068}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: handle_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1706,7 +1707,7 @@ GameObject:
   - component: {fileID: 7403771350817980845}
   - component: {fileID: 6011138058970386121}
   - component: {fileID: 4699047105200839376}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: tubea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,7 +1793,7 @@ GameObject:
   - component: {fileID: 4646931935733660773}
   - component: {fileID: 1551399369196253491}
   - component: {fileID: 1791898302227594473}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: valve2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2134,7 +2135,7 @@ GameObject:
   - component: {fileID: 3180411919469358285}
   - component: {fileID: 8193472292844659580}
   - component: {fileID: 2299016239679091786}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: GunParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6967,7 +6968,7 @@ GameObject:
   - component: {fileID: 2512459192056260115}
   - component: {fileID: 6701497545456364608}
   - component: {fileID: 2772548365980612078}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: sights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7053,7 +7054,7 @@ GameObject:
   - component: {fileID: 4754582394407921909}
   - component: {fileID: 2948995420136155265}
   - component: {fileID: 5892047530491289039}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: info_pane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7138,7 +7139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131235044093549108}
   - component: {fileID: 8351819064896265454}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: pointer_pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7188,7 +7189,7 @@ GameObject:
   - component: {fileID: 6601660122648810067}
   - component: {fileID: 508068616648625723}
   - component: {fileID: 4432266826092823640}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: firing_pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7360,7 +7361,7 @@ GameObject:
   - component: {fileID: 2522011902001672926}
   - component: {fileID: 1183829098185343097}
   - component: {fileID: 3844540538607637047}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: oxygen tank.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7532,7 +7533,7 @@ GameObject:
   - component: {fileID: 3526797356152569874}
   - component: {fileID: 1163086431966512228}
   - component: {fileID: 2963395818306674605}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: firing_pipe.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7618,7 +7619,7 @@ GameObject:
   - component: {fileID: 5508284361938027557}
   - component: {fileID: 7391585301865602621}
   - component: {fileID: 3629594576300082571}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: glass_pane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

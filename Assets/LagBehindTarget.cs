@@ -9,12 +9,13 @@ public class LagBehindTarget : MonoBehaviour
 
     private void Start()
     {
-        if (m_animateTarget == null) {
+        if (m_animateTarget == null)
+        {
             m_animateTarget = transform;
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         m_animateTarget.transform.position = Vector3.Lerp(m_animateTarget.position, m_followTarget.position, Time.deltaTime * m_followSpeed);
         m_animateTarget.rotation = Quaternion.Lerp(m_animateTarget.rotation, m_followTarget.rotation, Time.deltaTime * m_rotateSpeed);

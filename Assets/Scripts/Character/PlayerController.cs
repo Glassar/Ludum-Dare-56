@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour
     InputAction sprint;
     InputAction interact;
     InputAction attack;
-    float groundedDistance = 1.1f;
-    float jumpVelocity = 100;
+    float groundedDistance = 1.06f;
+    public float jumpForce = 100;
     InputAction jump;
 
     private void Start()
@@ -90,37 +90,19 @@ public class PlayerController : MonoBehaviour
 
         Interact();
         FireGun();
+
+        ControllCamera();
     }
 
-    private void FixedUpdate(){
+    private void FixedUpdate()
+    {
         Movement();
     }
 
-    private void Movement()
+    void ControllCamera()
     {
-        Vector2 moveInput = move.ReadValue<Vector2>();
-
-        Vector3 forward = playerBody.TransformDirection(Vector3.forward);
-        Vector3 right = playerBody.TransformDirection(Vector3.right);
-
-        Vector3 j = Vector3.zero;
-
-        RaycastHit hit;
-        if (jump.WasPressedThisFrame() && Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground")))
-        {
-
-            if (hit.distance < groundedDistance)
-            {
-                j = Vector3.up * jumpVelocity;
-            }
-        }
-
-        Vector3 movement = forward * moveInput[1] + right * moveInput[0] + j;
-
-        rb.linearVelocity = movement * ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed);
-
-
         Vector2 lookInput = look.ReadValue<Vector2>();
+        Vector3 forward = playerBody.TransformDirection(Vector3.forward);
 
         rotationX += lookInput[0] * lookSpeed * Time.deltaTime;
 
@@ -130,6 +112,29 @@ public class PlayerController : MonoBehaviour
         rotationY = Mathf.Clamp(rotationY, -lookYLimit, lookYLimit);
         playerHead.localRotation = Quaternion.Euler(rotationY, 0, 0);
 
+    }
+
+    private void Movement()
+    {
+        Vector2 moveInput = move.ReadValue<Vector2>();
+
+        Vector3 forward = playerBody.TransformDirection(Vector3.forward);
+        Vector3 right = playerBody.TransformDirection(Vector3.right);
+        RaycastHit hit;
+
+        if (jump.IsPressed())
+        {
+            Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground"));
+            print(hit.distance);
+            if (hit.distance < groundedDistance)
+            {
+                rb.AddForce(Vector3.up * jumpForce);
+            }
+        }
+
+        Vector3 movement = forward * moveInput[1] + right * moveInput[0];
+
+        rb.linearVelocity = movement * ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed) + rb.linearVelocity.y * Vector3.up;
     }
 
     private void OxygenController()
@@ -175,11 +180,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void FireGun(){
+    private void FireGun()
+    {
         RaycastHit hit;
-        if (attack.WasPressedThisFrame()) {
+        if (attack.WasPressedThisFrame())
+        {
             gunParticles.Play();
-            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player")))){
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
+            {
                 Debug.Log($"hit: {hit.transform.name}");
             }
         }
