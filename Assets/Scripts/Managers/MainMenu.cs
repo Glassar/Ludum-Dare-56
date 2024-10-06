@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private Slider music;
     [SerializeField] private Slider sound;
+    [SerializeField] private Slider sensitivity;
 
     [SerializeField] private AudioMixer mixer;
 
@@ -42,7 +43,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void Settings()
+    public void SettingsPage()
     {
         settings.SetActive(!inSettings);
         title.SetActive(inSettings);
@@ -53,5 +54,6 @@ public class MainMenu : MonoBehaviour
     {
         mixer.SetFloat("MusicVolume", music.value);
         mixer.SetFloat("SFXVolume", sound.value);
+        Settings.instance.sensitivity = sensitivity.value;
     }
 }

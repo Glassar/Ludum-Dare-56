@@ -136,11 +136,11 @@ public class PlayerController : MonoBehaviour
         Vector2 lookInput = look.ReadValue<Vector2>();
         Vector3 forward = playerBody.TransformDirection(Vector3.forward);
 
-        rotationX += lookInput[0] * lookSpeed * Time.deltaTime;
+        rotationX += lookInput[0] * lookSpeed * Settings.instance.sensitivity * Time.deltaTime;
 
         playerBody.rotation = Quaternion.Euler(forward.x, rotationX, forward.z);
 
-        rotationY += -lookInput[1] * lookSpeed * Time.deltaTime;
+        rotationY += -lookInput[1] * lookSpeed * Settings.instance.sensitivity * Time.deltaTime;
         rotationY = Mathf.Clamp(rotationY, -lookYLimit, lookYLimit);
         playerHead.localRotation = Quaternion.Euler(rotationY, 0, 0);
 

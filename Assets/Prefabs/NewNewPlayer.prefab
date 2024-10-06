@@ -5564,7 +5564,7 @@ MonoBehaviour:
   gunCooldown: 3
   speed: 4
   sprintSpeed: 8
-  lookSpeed: 50
+  lookSpeed: 35
   lookYLimit: 70
   maxHealth: 100
   oxygen: 0
@@ -5616,11 +5616,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   heightbobIntensity: 0.1
   heightbobPeriod: 100
-  rayLimit: 5
+  rayLimitInteract: 5
+  rayLimitGun: 25
   cokes: 0
   gasTimer: 0
   oxygenFireCost: 30
-  gasTickDamage: 75
+  gasTickDamage: 50
   jumpForce: 20000
 --- !u!1 &1734017781972166808
 GameObject:
