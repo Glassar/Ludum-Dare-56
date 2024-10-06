@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     public int cokes = 0;
 
     public float oxygenFireCost = 25;
+    public float gasTickDamage = 15;
 
     InputAction move;
     InputAction look;
@@ -109,6 +110,8 @@ public class PlayerController : MonoBehaviour
         Reset();
 
         soundManager.PlayLoopingAudio("Ambient1", transform);
+        GasCloudComponent.gasDamage += GasDamage;
+
     }
 
     private void Update()
@@ -277,6 +280,13 @@ public class PlayerController : MonoBehaviour
         soundManager.PlayOneShotRandomPitch("steamExhaust", 0.3f);
 
         yield return null;
+    }
+
+
+    private void GasDamage()
+    {
+        soundManager.PlayOneShotRandomPitch("coughing", 0.1f);
+        oxygen -= gasTickDamage;
     }
 
     public void Reset()

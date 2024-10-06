@@ -46,7 +46,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 5a9e322ef364a974f917e4c935086138, type: 3}
   - id: coughing
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: 24300002, guid: 7defb974b65fa914ab0eb3018a7de0c4, type: 2}
     clips:
     - {fileID: 8300000, guid: b079b9226dde6984189a1e7eb408f32b, type: 3}
   - id: playerHurt
