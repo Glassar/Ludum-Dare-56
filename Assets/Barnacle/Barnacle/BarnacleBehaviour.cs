@@ -17,6 +17,8 @@ public class BarnacleBehaviour : Enemy
     public PlayerController player;
     [SerializeField] private SoundManager soundManager;
     public float attackDamage;
+    public float attackCooldown;
+    private float attackTimer;
 
     //PlayerController player;
     // Start is called before the first frame update
@@ -48,13 +50,21 @@ public class BarnacleBehaviour : Enemy
                 }else{
                     if(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
                         player.transform.position = mouth.transform.position; //Make player follow mouth towards "sack" when snatched
+                        attackTimer+= Time.deltaTime;
+                        if (attackTimer > attackCooldown) {
+                            PlayerController.instance.TakeDamage(attackDamage);
+                            attackTimer = 0f;
+                        }
+                        else {
+                            attackTimer+= Time.deltaTime;
+                        }
                     }
                     else{
                         // Attack animation done
                         attacking = false;
                         attack = false;
                         // Insert code here to kill player
-                        PlayerController.instance.TakeDamage(attackDamage);
+                        
                     }
                 }
             }else{

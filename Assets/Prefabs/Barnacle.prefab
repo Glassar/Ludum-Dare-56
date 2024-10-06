@@ -52,7 +52,8 @@ MonoBehaviour:
   attack_activation_range: 2.5
   player: {fileID: 0}
   soundManager: {fileID: 11400000, guid: 4f2f8e048e23f17419ec879739053515, type: 2}
-  attackDamage: 0
+  attackDamage: 20
+  attackCooldown: 2
 --- !u!65 &109279234097304274
 BoxCollider:
   m_ObjectHideFlags: 0
