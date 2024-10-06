@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     public float rayLimit = 1;
     public int cokes = 0;
+    public float gasTimer = 0;
 
     public float oxygenFireCost = 25;
     public float gasTickDamage = 15;
