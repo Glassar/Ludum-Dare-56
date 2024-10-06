@@ -17,6 +17,7 @@ MonoBehaviour:
     mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: 94ffb136a046cc741ab5f27a57ac1d0c, type: 3}
+    - {fileID: 8300000, guid: 2786bb04fc4abab41af4f96a0f46febb, type: 3}
   - id: footstep
     mixer: {fileID: 24300002, guid: 736c5648c07248b47b0df844d686b5a3, type: 2}
     clips:

@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     public float suffocationDamage = 2f;
     public AnimationCurve heightbobCurve;
     public float heightbobIntensity = 0.2f;
-    public float heightbobPeriod =1f;
+    public float heightbobPeriod = 1f;
 
     public float rayLimit = 1;
     public int cokes = 0;
@@ -103,9 +103,12 @@ public class PlayerController : MonoBehaviour
         attack = InputSystem.actions.FindAction("Attack");
         jump = InputSystem.actions.FindAction("Jump");
 
+        rotationX = transform.rotation.eulerAngles.y;
+        print(rotationX);
+
         Reset();
 
-        //soundManager.PlayLoopingAudio("Ambient1", transform);
+        soundManager.PlayLoopingAudio("Ambient1", transform);
     }
 
     private void Update()
@@ -161,14 +164,16 @@ public class PlayerController : MonoBehaviour
 
         // Calculate velocity according to sprint button
         Vector3 movement = forward * moveInput[1] + right * moveInput[0];
-        float sprinting =((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed);
+        float sprinting = ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed);
 
 
         // Handle breathing sound
-        if (sprint.IsPressed() && oxygen > 0) {
+        if (sprint.IsPressed() && oxygen > 0)
+        {
             playerBreathVolume = Mathf.Lerp(playerBreathVolume, playerBreathVolumeMax, Time.deltaTime * playerBreathVolumeGain);
         }
-        else {
+        else
+        {
             playerBreathVolume = Mathf.Lerp(playerBreathVolume, playerBreathVolumeBase, Time.deltaTime * playerBreathVolumeGain);
         }
 
@@ -178,12 +183,15 @@ public class PlayerController : MonoBehaviour
         playerHead.transform.localPosition = baseHeadPosition + new Vector3(0, heightbobCurve.Evaluate(bobTimer / heightbobPeriod), 0) * heightbobIntensity;
 
         // Handle footsteps
-        if (heightbobCurve.Evaluate(bobTimer / heightbobPeriod) < -0.4f && !stepped){
-            soundManager.PlayOneShotRandomPitch("footstep",0.1f);
+        if (heightbobCurve.Evaluate(bobTimer / heightbobPeriod) < -0.4f && !stepped)
+        {
+            soundManager.PlayOneShotRandomPitch("footstep", 0.1f);
             stepped = true;
         }
-        else {
-            if (heightbobCurve.Evaluate(bobTimer / heightbobPeriod) > 0f){
+        else
+        {
+            if (heightbobCurve.Evaluate(bobTimer / heightbobPeriod) > 0f)
+            {
                 stepped = false;
             }
         }
@@ -238,14 +246,15 @@ public class PlayerController : MonoBehaviour
     private void FireGun()
     {
         RaycastHit hit;
-        if (gunCooldownTimer < gunCooldown) {
+        if (gunCooldownTimer < gunCooldown)
+        {
 
             return;
         }
         if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost)
         {
             gunFireAnim.Play("Base Layer.gunFireAnim");
-            soundManager.PlayOneShotRandomPitch("musketFire",0.1f);
+            soundManager.PlayOneShotRandomPitch("musketFire", 0.1f);
             gunParticles.Play();
             gunParticles2.Play();
             if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
@@ -255,15 +264,16 @@ public class PlayerController : MonoBehaviour
 
             oxygen -= oxygenFireCost;
             gunCooldownTimer = 0f;
-            
+
             StartCoroutine(GunAnim());
         }
     }
 
 
-    IEnumerator GunAnim() {
+    IEnumerator GunAnim()
+    {
         yield return new WaitForSeconds(0.3f);
-        exhaustParticles[Random.Range(0,exhaustParticles.Length)].Play();
+        exhaustParticles[Random.Range(0, exhaustParticles.Length)].Play();
         soundManager.PlayOneShotRandomPitch("steamExhaust", 0.3f);
 
         yield return null;
