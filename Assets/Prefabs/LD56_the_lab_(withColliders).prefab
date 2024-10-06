@@ -983,6 +983,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7578618346020918371}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1499047949522953745}
+    - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7677929614655055840}
     - targetCorrespondingSourceObject: {fileID: 8513859187771203891, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6792791526220162052}
@@ -995,6 +1001,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
   m_PrefabInstance: {fileID: 3138124069732590624}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6006298535276110896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
+  m_PrefabInstance: {fileID: 3138124069732590624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1499047949522953745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006298535276110896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482641a36e1a94c46ae4fdfab02232c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipA:
+  - 'Somnum Device Requires '
+  - ' Fuel'
+  tooltipB: Enter Somnum Device
+  highlightColor: {r: 0.26455146, g: 0.3180319, b: 0.38679248, a: 1}
+  maxTimeOut: 0.1
+  cokeCount: 4
+--- !u!136 &7677929614655055840
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006298535276110896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.017
+  m_Height: 0.05
+  m_Direction: 1
+  m_Center: {x: 0.00028561938, y: -0.0085050035, z: -0.00061060983}
 --- !u!1 &6749654379777738003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
@@ -1012,6 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc9a4257556fa14e8c3b7f73f36dc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltip: Enter the Subway
   highlightColor: {r: 0.3448736, g: 0.3982734, b: 0.4716981, a: 1}
   maxTimeOut: 0.1
   tpTarget: {fileID: 0}

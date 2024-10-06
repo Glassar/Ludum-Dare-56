@@ -5567,10 +5567,8 @@ MonoBehaviour:
   lookSpeed: 50
   lookYLimit: 70
   maxHealth: 100
-  healthbar: {fileID: 0}
   oxygen: 0
   maxOxygen: 1000
-  oxygenBar: {fileID: 0}
   oxygenConsumptionRate: 1
   sprintOxygenConsumption: 5
   suffocationDamage: 2
@@ -5618,11 +5616,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   heightbobIntensity: 0.1
   heightbobPeriod: 100
-  rayLimit: 10
+  rayLimit: 5
   cokes: 0
   gasTimer: 0
   oxygenFireCost: 30
-  gasTickDamage: 20
+  gasTickDamage: 75
   jumpForce: 20000
 --- !u!1 &1734017781972166808
 GameObject:

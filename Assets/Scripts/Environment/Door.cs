@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Door : Interactables
 {
-    [SerializeField] private string tooltip = "Open Door";
+    [SerializeField] private string tooltipOpen = "Open Door";
+    [SerializeField] private string tooltipClose = "Close Door";
     private Color defaultColor;
     public Color highlightColor;
 
@@ -30,7 +31,7 @@ public class Door : Interactables
 
     public override void Highlight()
     {
-        TooltipHandler.instance.UpdateTooltip(tooltip);
+        TooltipHandler.instance.UpdateTooltip(direction == -1 ? tooltipOpen : tooltipClose);
         mesh.material.color = highlightColor;
         timeOut = maxTimeOut;
         highlighted = true;
@@ -38,16 +39,18 @@ public class Door : Interactables
 
     void Update()
     {
-        if (timeOut > 0 && highlighted)
+        if (highlighted)
         {
-            timeOut -= Time.deltaTime;
-        }
-        else
-        {
-            TooltipHandler.instance.UpdateTooltip("");
-
-            highlighted = false;
-            mesh.material.color = defaultColor;
+            if (timeOut > 0)
+            {
+                timeOut -= Time.deltaTime;
+            }
+            else
+            {
+                TooltipHandler.instance.UpdateTooltip("");
+                highlighted = false;
+                mesh.material.color = defaultColor;
+            }
         }
 
     }

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Teleport : Interactables
 {
+    [SerializeField] private string tooltip = "Enter the Subway";
+
     private Color defaultColor;
     public Color highlightColor;
 
@@ -25,6 +27,7 @@ public class Teleport : Interactables
 
     public override void Highlight()
     {
+        TooltipHandler.instance.UpdateTooltip(tooltip);
         mesh.material.color = highlightColor;
         timeOut = maxTimeOut;
         highlighted = true;
@@ -32,14 +35,18 @@ public class Teleport : Interactables
 
     void Update()
     {
-        if (timeOut > 0 && highlighted)
+        if (highlighted)
         {
-            timeOut -= Time.deltaTime;
-        }
-        else
-        {
-            highlighted = false;
-            mesh.material.color = defaultColor;
+            if (timeOut > 0)
+            {
+                timeOut -= Time.deltaTime;
+            }
+            else
+            {
+                TooltipHandler.instance.UpdateTooltip("");
+                highlighted = false;
+                mesh.material.color = defaultColor;
+            }
         }
 
     }
