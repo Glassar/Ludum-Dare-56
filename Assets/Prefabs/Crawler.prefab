@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 1336368384475326533}
   - component: {fileID: 6059271855464496673}
   - component: {fileID: 1708618791626581858}
+  - component: {fileID: 7257146615973332942}
   m_Layer: 0
   m_Name: Crawler
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
+  soundManager: {fileID: 11400000, guid: 4f2f8e048e23f17419ec879739053515, type: 2}
   player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
@@ -140,14 +142,14 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  health: 3
+  health: 2
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 7
   patrolSpeed: 0
   chaseSpeed: 0
   timeBetweenAttacks: 1
   attackDamage: 10
-  sightRange: 10
+  sightRange: 15
   attackRange: 1
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -161,7 +163,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -170,6 +172,27 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &7257146615973332942
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216377992611926141}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -263,6 +263,9 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
             {
                 Debug.Log($"hit: {hit.transform.name}");
+                if (hit.transform.CompareTag("Enemy")) {
+                    hit.transform.GetComponent<Enemy>().TakeDamage(1);
+                }
             }
 
             oxygen -= oxygenFireCost;

@@ -29,10 +29,6 @@ MonoBehaviour:
     mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: f86eda4c16b50ed44a919ca9171a1632, type: 3}
-  - id: monsterDamage
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
-    clips:
-    - {fileID: 8300000, guid: 210d70e12f57463409804d0204019703, type: 3}
   - id: steamEngine
     mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
@@ -61,3 +57,15 @@ MonoBehaviour:
     mixer: {fileID: 24300002, guid: 46829a79bbb7f8043a5e615a4e5e2d1b, type: 2}
     clips:
     - {fileID: 8300000, guid: df3eea5f63539b443a71d5bf43cd7e6a, type: 3}
+  - id: crawlerAttack
+    mixer: {fileID: 24300002, guid: 23f6d9ed4a340d84a9464336a7e52728, type: 2}
+    clips:
+    - {fileID: 8300000, guid: bb9de45d718aae542ad4d4fecc779c3f, type: 3}
+  - id: crawlerDeath
+    mixer: {fileID: 24300002, guid: 23f6d9ed4a340d84a9464336a7e52728, type: 2}
+    clips:
+    - {fileID: 8300000, guid: bb9de45d718aae542ad4d4fecc779c3f, type: 3}
+  - id: crawlerDamage
+    mixer: {fileID: 24300002, guid: 23f6d9ed4a340d84a9464336a7e52728, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 210d70e12f57463409804d0204019703, type: 3}

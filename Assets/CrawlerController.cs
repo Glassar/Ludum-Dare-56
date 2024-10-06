@@ -1,9 +1,11 @@
+using Rellac.Audio;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CrawlerController : MonoBehaviour
+public class CrawlerController : Enemy
 {
     public NavMeshAgent agent;
+    [SerializeField] private SoundManager soundManager;
 
     public Transform player;
 
@@ -18,7 +20,6 @@ public class CrawlerController : MonoBehaviour
     public float patrolSpeed;
     public float chaseSpeed;
 
-
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -32,6 +33,13 @@ public class CrawlerController : MonoBehaviour
     {
         player = PlayerController.instance.transform;
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    public override void TakeDamage(float dmg) {
+        health -= dmg;
+        soundManager.PlayOneShotRandomPitch("crawlerDamage", 0.05f);
+
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
     private void Update()
@@ -85,6 +93,7 @@ public class CrawlerController : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
+            soundManager.PlayOneShotRandomPitch("crawlerAttack", 0.05f);
             PlayerController.instance.TakeDamage(attackDamage);
             ///End of attack code
 
@@ -97,14 +106,9 @@ public class CrawlerController : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
     private void DestroyEnemy()
     {
+        soundManager.PlayOneShotRandomPitch("crawlerDeath", 0.05f);
         Destroy(gameObject);
     }
 
