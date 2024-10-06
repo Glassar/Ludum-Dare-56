@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(instance);
         }
     }
 
@@ -128,21 +127,35 @@ public class PlayerController : MonoBehaviour
         playerBreath.volume = playerBreathVolume;
         gunCooldownTimer += Time.deltaTime;
 
-        if (health <=0) PlayerDie();
+        if (health <= 0) PlayerDie();
     }
 
 
     // Should be handled elsewhere
-    private void PlayerDie() {
+    private void PlayerDie()
+    {
         Time.timeScale = 0;
         endState.SetActive(true);
         looseState.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        TooltipHandler.instance.text1.gameObject.SetActive(false);
+        TooltipHandler.instance.text2.gameObject.SetActive(false);
     }
 
-    public void PlayerWin() {
+    public void PlayerWin()
+    {
         Time.timeScale = 0;
         endState.SetActive(true);
         winState.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        TooltipHandler.instance.text1.gameObject.SetActive(false);
+        TooltipHandler.instance.text2.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -184,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
         // Calculate velocity according to sprint button
         Vector3 movement = forward * moveInput[1] + right * moveInput[0];
-        float sprinting = ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed);
+        float sprinting = (sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed;
 
 
         // Handle breathing sound
@@ -237,7 +250,7 @@ public class PlayerController : MonoBehaviour
     private void Interact()
     {
         RaycastHit hit;
-        if (interact.WasPressedThisFrame())
+        if (interact.WasPressedThisFrame() && !endState.activeInHierarchy)
         {
             if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward),
                                 out hit, rayLimitInteract, ~(1 << LayerMask.NameToLayer("Player")) & ~(1 << LayerMask.NameToLayer("Ignore Raycast"))))
@@ -274,7 +287,7 @@ public class PlayerController : MonoBehaviour
 
             return;
         }
-        if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost)
+        if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost && !endState.activeInHierarchy)
         {
             gunFireAnim.Play("Base Layer.gunFireAnim");
             soundManager.PlayOneShotRandomPitch("musketFire", 0.1f);

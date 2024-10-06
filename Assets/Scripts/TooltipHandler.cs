@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TooltipHandler : MonoBehaviour
 {
     public static TooltipHandler instance;
-    [SerializeField] private TMP_Text text1;
-    [SerializeField] private TMP_Text text2;
+    [SerializeField] public TMP_Text text1;
+    [SerializeField] public TMP_Text text2;
 
     private void Awake()
     {
@@ -23,5 +24,10 @@ public class TooltipHandler : MonoBehaviour
     {
         text1.text = text;
         text2.text = text;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
