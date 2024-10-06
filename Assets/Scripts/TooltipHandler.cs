@@ -22,7 +22,6 @@ public class TooltipHandler : MonoBehaviour
 
     public void UpdateTooltip(string text)
     {
-        print(text);
         text1.text = text;
         text2.text = text;
     }

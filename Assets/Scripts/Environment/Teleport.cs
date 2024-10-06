@@ -22,7 +22,14 @@ public class Teleport : Interactables
     }
     public override void Interact()
     {
-        PlayerController.instance.transform.position = tpTarget.position;
+        Rigidbody rb = PlayerController.instance.GetComponent<Rigidbody>();
+        rb.position = tpTarget.position;
+        rb.linearVelocity = Vector3.zero;
+        print(PlayerController.instance.transform.position + " " + tpTarget.position);
+
+        TooltipHandler.instance.UpdateTooltip("");
+        highlighted = false;
+        mesh.material.color = defaultColor;
     }
 
     public override void Highlight()
