@@ -17,11 +17,11 @@ public class GasCloudComponent : MonoBehaviour
     {
         if (other == null) return;
         if (other.CompareTag(playerTag)) {
-            if (damageTickTimer > damageTickTime) {
+            if (PlayerController.instance.gasTimer > damageTickTime) {
                 gasDamage.Invoke();
-                damageTickTimer = 0f;
+                PlayerController.instance.gasTimer = 0f;
             } else {
-                damageTickTimer += Time.deltaTime;
+                PlayerController.instance.gasTimer += Time.deltaTime;
             }
         }
     }
