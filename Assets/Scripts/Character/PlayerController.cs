@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using Rellac.Audio;
 using TMPro;
 using Unity.VisualScripting;
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform playerBody;
     [SerializeField] private Transform playerHead;
     [SerializeField] private ParticleSystem gunParticles;
+    [SerializeField] private ParticleSystem gunParticles2;
+    [SerializeField] private ParticleSystem[] exhaustParticles;
     [SerializeField] private AudioSource playerBreath;
     [SerializeField] private float playerBreathVolumeBase = 0.5f;
     [SerializeField] private float playerBreathVolumeMax = 1f;
@@ -33,7 +35,14 @@ public class PlayerController : MonoBehaviour
     private float playerBreathVolume = 0.5f;
     private bool stepped = false;
 
+    [SerializeField] private Animator gunFireAnim;
+
+
     [SerializeField] private SoundManager soundManager;
+
+
+    [SerializeField] private float gunCooldown;
+    private float gunCooldownTimer;
 
     public float speed = 5f;
     public float sprintSpeed = 8f;
@@ -109,6 +118,7 @@ public class PlayerController : MonoBehaviour
         ControllCamera();
 
         playerBreath.volume = playerBreathVolume;
+        gunCooldownTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -228,16 +238,35 @@ public class PlayerController : MonoBehaviour
     private void FireGun()
     {
         RaycastHit hit;
+        if (gunCooldownTimer < gunCooldown) {
+
+            return;
+        }
         if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost)
         {
+            gunFireAnim.Play("Base Layer.gunFireAnim");
+            soundManager.PlayOneShotRandomPitch("musketFire",0.1f);
             gunParticles.Play();
+            gunParticles2.Play();
             if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
             {
                 Debug.Log($"hit: {hit.transform.name}");
             }
 
             oxygen -= oxygenFireCost;
+            gunCooldownTimer = 0f;
+            
+            StartCoroutine(GunAnim());
         }
+    }
+
+
+    IEnumerator GunAnim() {
+        yield return new WaitForSeconds(0.3f);
+        exhaustParticles[Random.Range(0,exhaustParticles.Length)].Play();
+        soundManager.PlayOneShotRandomPitch("steamExhaust", 0.3f);
+
+        yield return null;
     }
 
     public void Reset()

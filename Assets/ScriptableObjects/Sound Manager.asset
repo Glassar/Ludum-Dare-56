@@ -56,3 +56,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a8259a713da46a34687879eef2c5f8ce, type: 3}
     - {fileID: 8300000, guid: 6436cd1d6fe978c419ce3939026d4e01, type: 3}
     - {fileID: 8300000, guid: 98a88d5c5e5683b439eb51a8766cecc7, type: 3}
+  - id: steamExhaust
+    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: df3eea5f63539b443a71d5bf43cd7e6a, type: 3}
+    - {fileID: 8300000, guid: 2fbc3a84f0fc16b4890607083d67209d, type: 3}
