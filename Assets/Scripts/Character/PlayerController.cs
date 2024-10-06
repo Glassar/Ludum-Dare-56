@@ -1,3 +1,4 @@
+
 using System.Collections;
 using Rellac.Audio;
 using TMPro;
@@ -85,9 +86,13 @@ public class PlayerController : MonoBehaviour
     InputAction sprint;
     InputAction interact;
     InputAction attack;
+    InputAction settings;
     float groundedDistance = 1.04f;
     public float jumpForce = 100;
     InputAction jump;
+
+    public GameObject settingsMenu;
+    bool canInteractAndShoot = true;
 
     private void Start()
     {
@@ -105,6 +110,7 @@ public class PlayerController : MonoBehaviour
         interact = InputSystem.actions.FindAction("Interact");
         attack = InputSystem.actions.FindAction("Attack");
         jump = InputSystem.actions.FindAction("Jump");
+        settings = InputSystem.actions.FindAction("Settings");
 
         rotationX = transform.rotation.eulerAngles.y;
 
@@ -122,12 +128,38 @@ public class PlayerController : MonoBehaviour
         Interact();
         FireGun();
 
-        ControllCamera();
+        if (canInteractAndShoot)
+        {
+            ControllCamera();
+        }
 
         playerBreath.volume = playerBreathVolume;
         gunCooldownTimer += Time.deltaTime;
 
         if (health <= 0) PlayerDie();
+
+        if (settings.IsPressed())
+        {
+            settingsMenu.SetActive(true);
+            TooltipHandler.instance.text1.gameObject.SetActive(false);
+            TooltipHandler.instance.text2.gameObject.SetActive(false);
+
+            canInteractAndShoot = false;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (settings.WasReleasedThisFrame())
+        {
+            settingsMenu.SetActive(false);
+            TooltipHandler.instance.text1.gameObject.SetActive(true);
+            TooltipHandler.instance.text2.gameObject.SetActive(true);
+
+            canInteractAndShoot = true;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
 
@@ -143,6 +175,8 @@ public class PlayerController : MonoBehaviour
 
         TooltipHandler.instance.text1.gameObject.SetActive(false);
         TooltipHandler.instance.text2.gameObject.SetActive(false);
+
+        canInteractAndShoot = false;
     }
 
     public void PlayerWin()
@@ -156,6 +190,8 @@ public class PlayerController : MonoBehaviour
 
         TooltipHandler.instance.text1.gameObject.SetActive(false);
         TooltipHandler.instance.text2.gameObject.SetActive(false);
+
+        canInteractAndShoot = false;
     }
 
     private void FixedUpdate()
@@ -250,7 +286,7 @@ public class PlayerController : MonoBehaviour
     private void Interact()
     {
         RaycastHit hit;
-        if (interact.WasPressedThisFrame() && !endState.activeInHierarchy)
+        if (interact.WasPressedThisFrame() && canInteractAndShoot)
         {
             if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward),
                                 out hit, rayLimitInteract, ~(1 << LayerMask.NameToLayer("Player")) & ~(1 << LayerMask.NameToLayer("Ignore Raycast"))))
@@ -287,7 +323,7 @@ public class PlayerController : MonoBehaviour
 
             return;
         }
-        if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost && !endState.activeInHierarchy)
+        if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost && canInteractAndShoot)
         {
             gunFireAnim.Play("Base Layer.gunFireAnim");
             soundManager.PlayOneShotRandomPitch("musketFire", 0.1f);
