@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Door : Interactables
 {
+    [SerializeField] private string tooltip = "Open Door";
     private Color defaultColor;
     public Color highlightColor;
 
@@ -29,6 +30,7 @@ public class Door : Interactables
 
     public override void Highlight()
     {
+        TooltipHandler.instance.UpdateTooltip(tooltip);
         mesh.material.color = highlightColor;
         timeOut = maxTimeOut;
         highlighted = true;
@@ -42,6 +44,8 @@ public class Door : Interactables
         }
         else
         {
+            TooltipHandler.instance.UpdateTooltip("");
+
             highlighted = false;
             mesh.material.color = defaultColor;
         }

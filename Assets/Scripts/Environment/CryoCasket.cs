@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CryoCasket : Interactables
 {
+    [SerializeField] private string tooltipA = "Somnum Device Requires Fuel";
+    [SerializeField] private string tooltipB = "Enter Somnum Device";
     private Material defaultColor;
     public Material highlightColor;
 
@@ -23,17 +25,26 @@ public class CryoCasket : Interactables
     {
         if (PlayerController.instance.cokes >= cokeCount)
         {
-            print("Level Finished");
+            Debug.Log("Level Finished");
             PlayerController.instance.Reset();
         }
         else
         {
-            print("Not enough cokes");
+            Debug.Log("Not enough cokes");
         }
     }
 
     public override void Highlight()
     {
+        if (PlayerController.instance.cokes >= cokeCount)
+        {
+            TooltipHandler.instance.UpdateTooltip(tooltipB);
+        }
+        else
+        {
+            TooltipHandler.instance.UpdateTooltip(tooltipA);
+        }
+
         mesh.material = highlightColor;
         timeOut = maxTimeOut;
         highlighted = true;
@@ -47,6 +58,7 @@ public class CryoCasket : Interactables
         }
         else
         {
+            TooltipHandler.instance.UpdateTooltip("");
             highlighted = false;
             mesh.material = defaultColor;
         }

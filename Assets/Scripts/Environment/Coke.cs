@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coke : Interactables
 {
+    [SerializeField] private string tooltip = "Pick up Carbonated BioFuel™";
     private Material defaultColor;
     public Material highlightColor;
 
@@ -20,12 +21,13 @@ public class Coke : Interactables
     public override void Interact()
     {
         PlayerController.instance.cokes++;
-        print("You picked up a coke, you now have " + PlayerController.instance.cokes);
+        Debug.Log("You picked up a coke, you now have " + PlayerController.instance.cokes);
         Destroy(gameObject);
     }
 
     public override void Highlight()
     {
+        TooltipHandler.instance.UpdateTooltip(tooltip);
         mesh.material = highlightColor;
         timeOut = maxTimeOut;
         highlighted = true;
@@ -39,6 +41,7 @@ public class Coke : Interactables
         }
         else
         {
+            TooltipHandler.instance.UpdateTooltip("");
             highlighted = false;
             mesh.material = defaultColor;
         }
