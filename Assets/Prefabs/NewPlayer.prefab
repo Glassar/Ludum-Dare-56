@@ -6056,7 +6056,7 @@ GameObject:
   - component: {fileID: 8218407964163188183}
   m_Layer: 3
   m_Name: NewPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6268,7 +6268,8 @@ MonoBehaviour:
   heightbobPeriod: 100
   rayLimit: 10
   cokes: 0
-  oxygenFireCost: 25
+  oxygenFireCost: 30
+  gasTickDamage: 20
   jumpForce: 20000
 --- !u!1 &2557011007695517113
 GameObject:
