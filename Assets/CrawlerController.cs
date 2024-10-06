@@ -22,7 +22,7 @@ public class CrawlerController : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
+    public float attackDamage;
 
     //States
     public float sightRange, attackRange;
@@ -85,7 +85,7 @@ public class CrawlerController : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Debug.Log("ATTACK");
+            PlayerController.instance.TakeDamage(attackDamage);
             ///End of attack code
 
             alreadyAttacked = true;

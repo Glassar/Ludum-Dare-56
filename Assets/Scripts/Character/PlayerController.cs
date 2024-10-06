@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private SoundManager soundManager;
-
+    [SerializeField] private HealthVisualsHandler healthVisuals;
 
     [SerializeField] private float gunCooldown;
     private float gunCooldownTimer;
@@ -208,6 +208,7 @@ public class PlayerController : MonoBehaviour
         {
             oxygen = 0;
             health -= suffocationDamage * Time.deltaTime;
+            healthVisuals.UpdateHealthImage(health/maxHealth);
         }
         else
         {
@@ -281,6 +282,11 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    public void TakeDamage(float dmg){
+        health -= dmg;
+        healthVisuals.UpdateHealthImage(health/maxHealth);
+        soundManager.PlayOneShotRandomPitch("playerHurt",0.1f);
+    }
 
     private void GasDamage()
     {
