@@ -1140,7 +1140,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1187,9 +1187,9 @@ MonoBehaviour:
   playerHead: {fileID: 7063610818753547559}
   gunParticles: {fileID: 8193472292844659580}
   soundManager: {fileID: 11400000, guid: 4f2f8e048e23f17419ec879739053515, type: 2}
-  speed: 5
+  speed: 4
   sprintSpeed: 8
-  lookSpeed: 100
+  lookSpeed: 50
   lookYLimit: 70
   maxHealth: 100
   healthbar: {fileID: 0}
@@ -1199,6 +1199,50 @@ MonoBehaviour:
   oxygenConsumptionRate: 1
   sprintOxygenConsumption: 5
   suffocationDamage: 2
+  heightbobCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0010880828
+      value: 0.0028062463
+      inSlope: 6.2963896
+      outSlope: 6.2963896
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09827756
+    - serializedVersion: 3
+      time: 0.20038657
+      value: 0.50106895
+      inSlope: -0.060987234
+      outSlope: -0.060987234
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4498734
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7715029
+      value: -0.50115275
+      inSlope: 0.008445442
+      outSlope: 0.008445442
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.37093425
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0010881
+      value: 0.0028062463
+      inSlope: 6.36946
+      outSlope: 6.36946
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14516985
+      outWeight: 0
+    m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  heightbobIntensity: 0.1
+  heightbobPeriod: 100
   rayLimit: 10
   cokes: 0
   oxygenFireCost: 25
@@ -1519,7 +1563,7 @@ Transform:
   m_GameObject: {fileID: 4680844350261760332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1895,7 +1939,7 @@ Transform:
   m_GameObject: {fileID: 5331700734580405379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

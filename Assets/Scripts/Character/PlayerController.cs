@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     private float rotationX;
     private float rotationY;
+    private float bobTimer = 0f;
+    private Vector3 baseHeadPosition;
 
     public float maxHealth = 100f;
     private float health;
@@ -50,6 +52,9 @@ public class PlayerController : MonoBehaviour
     public float oxygenConsumptionRate = 1f;
     public float sprintOxygenConsumption = 5f;
     public float suffocationDamage = 2f;
+    public AnimationCurve heightbobCurve;
+    public float heightbobIntensity = 0.2f;
+    public float heightbobPeriod =1f;
 
     public float rayLimit = 1;
     public int cokes = 0;
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        baseHeadPosition = playerHead.transform.localPosition;
 
         move = InputSystem.actions.FindAction("Move");
         look = InputSystem.actions.FindAction("Look");
@@ -82,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
         Reset();
 
-        soundManager.PlayLoopingAudio("Ambient1", transform);
+        //soundManager.PlayLoopingAudio("Ambient1", transform);
     }
 
     private void Update()
@@ -126,7 +132,7 @@ public class PlayerController : MonoBehaviour
         if (jump.IsPressed())
         {
 
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground")) && hit.distance < groundedDistance)
+            if (Physics.Raycast(playerBody.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground")) && hit.distance < groundedDistance)
             {
                 rb.AddForce(Vector3.up * jumpForce);
             }
@@ -135,7 +141,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = forward * moveInput[1] + right * moveInput[0];
 
-        rb.linearVelocity = movement * ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed) + rb.linearVelocity.y * Vector3.up;
+
+        float velocity = ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed) * (moveInput == Vector2.zero ? 0f : 1f);
+        bobTimer += velocity;
+        playerHead.transform.localPosition = baseHeadPosition + new Vector3(0, heightbobCurve.Evaluate(bobTimer / heightbobPeriod), 0) * heightbobIntensity;
+
+        rb.linearVelocity = movement * velocity + rb.linearVelocity.y * Vector3.up;
     }
 
     private void OxygenController()
