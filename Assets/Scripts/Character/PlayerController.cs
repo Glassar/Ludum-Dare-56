@@ -105,7 +105,6 @@ public class PlayerController : MonoBehaviour
         jump = InputSystem.actions.FindAction("Jump");
 
         rotationX = transform.rotation.eulerAngles.y;
-        print(rotationX);
 
         Reset();
 
@@ -162,7 +161,6 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce);
             }
-            print(hit.distance);
         }
 
         // Calculate velocity according to sprint button
