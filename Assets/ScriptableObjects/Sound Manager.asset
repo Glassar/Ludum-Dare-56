@@ -37,7 +37,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: ad5c27de09af87248ba5848887c13fd9, type: 3}
   - id: musketFire
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: 24300002, guid: 46829a79bbb7f8043a5e615a4e5e2d1b, type: 2}
     clips:
     - {fileID: 8300000, guid: 643cf0d31759a334b84dd37a6208b2ba, type: 3}
   - id: pickup
@@ -57,7 +57,6 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6436cd1d6fe978c419ce3939026d4e01, type: 3}
     - {fileID: 8300000, guid: 98a88d5c5e5683b439eb51a8766cecc7, type: 3}
   - id: steamExhaust
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: 24300002, guid: 46829a79bbb7f8043a5e615a4e5e2d1b, type: 2}
     clips:
     - {fileID: 8300000, guid: df3eea5f63539b443a71d5bf43cd7e6a, type: 3}
-    - {fileID: 8300000, guid: 2fbc3a84f0fc16b4890607083d67209d, type: 3}
