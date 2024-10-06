@@ -22,13 +22,24 @@ public class MainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        soundManager.PlayLoopingAudio("Ambient1", transform);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            soundManager.PlayLoopingAudio("Ambient1", transform);
+        }
+
+        float tmp;
+        mixer.GetFloat("MusicVolume", out tmp);
+        music.value = tmp;
+
+        mixer.GetFloat("SFXVolume", out tmp);
+        sound.value = tmp;
+
+        sensitivity.value = Settings.instance.sensitivity;
     }
 
     public void Play()
     {
         SceneManager.LoadScene(1);
-        //SceneManager.UnloadSceneAsync(0);
     }
 
     public void Quit()
