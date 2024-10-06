@@ -70,7 +70,8 @@ public class PlayerController : MonoBehaviour
     public float heightbobIntensity = 0.2f;
     public float heightbobPeriod = 1f;
 
-    public float rayLimit = 1;
+    public float rayLimitInteract = 5;
+    public float rayLimitGun = 25;
     public int cokes = 0;
     public float gasTimer = 0;
 
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour
         if (jump.IsPressed())
         {
 
-            if (Physics.Raycast(playerBody.position, Vector3.down, out hit, rayLimit, 1 << LayerMask.NameToLayer("Ground")) && hit.distance < groundedDistance)
+            if (Physics.Raycast(playerBody.position, Vector3.down, out hit, rayLimitInteract, 1 << LayerMask.NameToLayer("Ground")) && hit.distance < groundedDistance)
             {
                 rb.AddForce(Vector3.up * jumpForce);
             }
@@ -219,7 +220,8 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (interact.WasPressedThisFrame())
         {
-            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward),
+                                out hit, rayLimitInteract, ~(1 << LayerMask.NameToLayer("Player")) & ~(1 << LayerMask.NameToLayer("Ignore Raycast"))))
             {
                 Interactables target = hit.transform.GetComponent<Interactables>();
                 if (target)
@@ -231,7 +233,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Might need optimizing
-            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward),
+                                out hit, rayLimitInteract, ~(1 << LayerMask.NameToLayer("Player")) & ~(1 << LayerMask.NameToLayer("Ignore Raycast"))))
             {
                 Interactables target = hit.transform.GetComponent<Interactables>();
                 if (target)
@@ -258,10 +261,12 @@ public class PlayerController : MonoBehaviour
             soundManager.PlayOneShotRandomPitch("musketFire", 0.1f);
             gunParticles.Play();
             gunParticles2.Play();
-            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, rayLimit, ~(1 << LayerMask.NameToLayer("Player"))))
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward),
+                                out hit, rayLimitGun, ~(1 << LayerMask.NameToLayer("Player")) & ~(1 << LayerMask.NameToLayer("Ignore Raycast"))))
             {
                 Debug.Log($"hit: {hit.transform.name}");
-                if (hit.transform.CompareTag("Enemy")) {
+                if (hit.transform.CompareTag("Enemy"))
+                {
                     hit.transform.GetComponent<Enemy>().TakeDamage(1);
                 }
             }
