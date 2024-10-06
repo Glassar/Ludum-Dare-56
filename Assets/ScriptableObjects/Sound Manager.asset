@@ -14,40 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipGroups:
   - id: Ambient1
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: 1056837508091889806, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: 94ffb136a046cc741ab5f27a57ac1d0c, type: 3}
     - {fileID: 8300000, guid: 2786bb04fc4abab41af4f96a0f46febb, type: 3}
     - {fileID: 8300000, guid: ee93e5cceea61234f92167f3f6923ebd, type: 3}
   - id: footstep
-    mixer: {fileID: 24300002, guid: 736c5648c07248b47b0df844d686b5a3, type: 2}
+    mixer: {fileID: -1349106593647012545, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: cecfb7363652460419546259b153ba7b, type: 3}
     - {fileID: 8300000, guid: 0d9c687eb254a324ebd4d12d1a3a07b5, type: 3}
     - {fileID: 8300000, guid: 702f6060ec13ef445aed429ab719ff5d, type: 3}
     - {fileID: 8300000, guid: 753f3e2d88fc10340816f376599b9b09, type: 3}
   - id: heavyBreathing
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: -1922173862345006201, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: f86eda4c16b50ed44a919ca9171a1632, type: 3}
   - id: steamEngine
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: -8357722644348361859, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: ad5c27de09af87248ba5848887c13fd9, type: 3}
   - id: musketFire
-    mixer: {fileID: 24300002, guid: 46829a79bbb7f8043a5e615a4e5e2d1b, type: 2}
+    mixer: {fileID: -5341256359028221792, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: 643cf0d31759a334b84dd37a6208b2ba, type: 3}
   - id: pickup
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: -2226199142029771728, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: 5a9e322ef364a974f917e4c935086138, type: 3}
   - id: coughing
-    mixer: {fileID: 24300002, guid: 7defb974b65fa914ab0eb3018a7de0c4, type: 2}
+    mixer: {fileID: -6171985810068068871, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: b079b9226dde6984189a1e7eb408f32b, type: 3}
   - id: playerHurt
-    mixer: {fileID: 24300002, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    mixer: {fileID: -2620869430537322432, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: b2da3bb7057bcfa4cb9dd2d567fceeab, type: 3}
     - {fileID: 8300000, guid: 00d4b688bcab5f649b234fa80b8aef63, type: 3}
@@ -55,18 +55,18 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6436cd1d6fe978c419ce3939026d4e01, type: 3}
     - {fileID: 8300000, guid: 98a88d5c5e5683b439eb51a8766cecc7, type: 3}
   - id: steamExhaust
-    mixer: {fileID: 24300002, guid: 46829a79bbb7f8043a5e615a4e5e2d1b, type: 2}
+    mixer: {fileID: -8357722644348361859, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: df3eea5f63539b443a71d5bf43cd7e6a, type: 3}
   - id: crawlerAttack
-    mixer: {fileID: 24300002, guid: 23f6d9ed4a340d84a9464336a7e52728, type: 2}
+    mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: bb9de45d718aae542ad4d4fecc779c3f, type: 3}
   - id: crawlerDeath
-    mixer: {fileID: 24300002, guid: 23f6d9ed4a340d84a9464336a7e52728, type: 2}
+    mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: bb9de45d718aae542ad4d4fecc779c3f, type: 3}
   - id: crawlerDamage
-    mixer: {fileID: 24300002, guid: 23f6d9ed4a340d84a9464336a7e52728, type: 2}
+    mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: 210d70e12f57463409804d0204019703, type: 3}
