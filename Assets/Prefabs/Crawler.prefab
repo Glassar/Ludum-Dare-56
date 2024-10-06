@@ -143,8 +143,10 @@ MonoBehaviour:
   health: 3
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 7
-  timeBetweenAttacks: 0
-  projectile: {fileID: 0}
+  patrolSpeed: 0
+  chaseSpeed: 0
+  timeBetweenAttacks: 1
+  attackDamage: 10
   sightRange: 10
   attackRange: 1
   playerInSightRange: 0
