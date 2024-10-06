@@ -1,6 +1,7 @@
 using System;
 using Rellac.Audio;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -25,6 +26,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform playerBody;
     [SerializeField] private Transform playerHead;
     [SerializeField] private ParticleSystem gunParticles;
+    [SerializeField] private AudioSource playerBreath;
+    [SerializeField] private float playerBreathVolumeBase = 0.5f;
+    [SerializeField] private float playerBreathVolumeMax = 1f;
+    [SerializeField] private float playerBreathVolumeGain = 0.1f;
+    private float playerBreathVolume = 0.5f;
+    private bool stepped = false;
 
     [SerializeField] private SoundManager soundManager;
 
@@ -78,6 +85,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         baseHeadPosition = playerHead.transform.localPosition;
+        playerBreathVolume = playerBreathVolumeBase;
 
         move = InputSystem.actions.FindAction("Move");
         look = InputSystem.actions.FindAction("Look");
@@ -99,6 +107,8 @@ public class PlayerController : MonoBehaviour
         FireGun();
 
         ControllCamera();
+
+        playerBreath.volume = playerBreathVolume;
     }
 
     private void FixedUpdate()
@@ -139,13 +149,36 @@ public class PlayerController : MonoBehaviour
             print(hit.distance);
         }
 
+        // Calculate velocity according to sprint button
         Vector3 movement = forward * moveInput[1] + right * moveInput[0];
+        float sprinting =((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed);
 
 
-        float velocity = ((sprint.IsPressed() && oxygen > 0) ? sprintSpeed : speed) * (moveInput == Vector2.zero ? 0f : 1f);
+        // Handle breathing sound
+        if (sprint.IsPressed() && oxygen > 0) {
+            playerBreathVolume = Mathf.Lerp(playerBreathVolume, playerBreathVolumeMax, Time.deltaTime * playerBreathVolumeGain);
+        }
+        else {
+            playerBreathVolume = Mathf.Lerp(playerBreathVolume, playerBreathVolumeBase, Time.deltaTime * playerBreathVolumeGain);
+        }
+
+        // Handle Player head-bob
+        float velocity = sprinting * (moveInput == Vector2.zero ? 0f : 1f);
         bobTimer += velocity;
         playerHead.transform.localPosition = baseHeadPosition + new Vector3(0, heightbobCurve.Evaluate(bobTimer / heightbobPeriod), 0) * heightbobIntensity;
 
+        // Handle footsteps
+        if (heightbobCurve.Evaluate(bobTimer / heightbobPeriod) < -0.4f && !stepped){
+            soundManager.PlayOneShotRandomPitch("footstep",0.1f);
+            stepped = true;
+        }
+        else {
+            if (heightbobCurve.Evaluate(bobTimer / heightbobPeriod) > 0f){
+                stepped = false;
+            }
+        }
+
+        // Update rb Velocity
         rb.linearVelocity = movement * velocity + rb.linearVelocity.y * Vector3.up;
     }
 
