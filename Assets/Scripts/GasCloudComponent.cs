@@ -7,20 +7,22 @@ public class GasCloudComponent : MonoBehaviour
     [SerializeField] private float damageTickTime = 1f;
     [SerializeField] private string playerTag;
 
-    private float damageTickTimer = 0f;
-
     // void OntriggerEnter(Collider other) {
     //     if (other == null) return;
     // }
-    
+
     void OnTriggerStay(Collider other)
     {
         if (other == null) return;
-        if (other.CompareTag(playerTag)) {
-            if (PlayerController.instance.gasTimer > damageTickTime) {
+        if (other.CompareTag(playerTag))
+        {
+            if (PlayerController.instance.gasTimer > damageTickTime)
+            {
                 gasDamage.Invoke();
                 PlayerController.instance.gasTimer = 0f;
-            } else {
+            }
+            else
+            {
                 PlayerController.instance.gasTimer += Time.deltaTime;
             }
         }

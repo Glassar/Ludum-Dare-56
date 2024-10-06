@@ -4901,7 +4901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9820abd2fc4fc74b8d892c77f755d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTickTime: 3
+  damageTickTime: 1
   playerTag: Player
 --- !u!114 &5952541578443389961
 MonoBehaviour:
