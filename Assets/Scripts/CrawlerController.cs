@@ -6,6 +6,9 @@ public class CrawlerController : Enemy
 {
     public NavMeshAgent agent;
     [SerializeField] private SoundManager soundManager;
+    [SerializeField] private Animator animator;
+    private bool isAnimating = false;
+    private bool dead = false;
 
     public Transform player;
 
@@ -44,13 +47,30 @@ public class CrawlerController : Enemy
 
     private void Update()
     {
-        //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        if (!dead){
+            //Check for sight and attack range
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+            if (!playerInSightRange && !playerInAttackRange) Patroling();
+            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        }
+
+        UpdateAnimations();
+    }
+
+    private void UpdateAnimations(){
+        if (!dead) {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {   
+                animator.SetTrigger("Walk");
+            }
+        }
+        else {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {   
+                animator.SetTrigger("DeadIdle");
+            }
+        }
     }
 
     private void Patroling()
@@ -85,14 +105,17 @@ public class CrawlerController : Enemy
 
     private void AttackPlayer()
     {
+        if (dead) return;
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        //transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             ///Attack code here
+            Debug.Log("Attacking");
+            animator.SetTrigger("Attack");
             soundManager.PlayOneShotRandomPitch("crawlerAttack", 0.05f);
             PlayerController.instance.TakeDamage(attackDamage);
             ///End of attack code
@@ -109,7 +132,9 @@ public class CrawlerController : Enemy
     private void DestroyEnemy()
     {
         soundManager.PlayOneShotRandomPitch("crawlerDeath", 0.05f);
-        Destroy(gameObject);
+        transform.GetComponent<Collider>().enabled = false;
+        agent.enabled = false;
+        dead = true;
     }
 
     private void OnDrawGizmosSelected()
