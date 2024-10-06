@@ -26,6 +26,7 @@ public class CryoCasket : Interactables
         if (PlayerController.instance.cokes >= cokeCount)
         {
             Debug.Log("Level Finished");
+            PlayerController.instance.PlayerWin();
             PlayerController.instance.Reset();
         }
         else

@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private HealthVisualsHandler healthVisuals;
+    [SerializeField] private GameObject endState;
+    [SerializeField] private GameObject looseState;
+    [SerializeField] private GameObject winState;
 
     [SerializeField] private float gunCooldown;
     private float gunCooldownTimer;
@@ -124,6 +127,22 @@ public class PlayerController : MonoBehaviour
 
         playerBreath.volume = playerBreathVolume;
         gunCooldownTimer += Time.deltaTime;
+
+        if (health <=0) PlayerDie();
+    }
+
+
+    // Should be handled elsewhere
+    private void PlayerDie() {
+        Time.timeScale = 0;
+        endState.SetActive(true);
+        looseState.SetActive(true);
+    }
+
+    public void PlayerWin() {
+        Time.timeScale = 0;
+        endState.SetActive(true);
+        winState.SetActive(true);
     }
 
     private void FixedUpdate()
