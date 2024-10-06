@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8948650320217578412}
   - component: {fileID: 6614390665550884710}
   - component: {fileID: 2804387051530666886}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: broken wooden chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5440389687410562057
 Transform:
@@ -117,12 +117,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8375669140905244710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Broken wooden chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8375669140905244710
 Transform:
