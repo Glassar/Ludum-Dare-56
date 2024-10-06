@@ -60,11 +60,9 @@ public class PlayerController : MonoBehaviour
 
     public float maxHealth = 100f;
     private float health;
-    public Transform healthbar;
 
     public float oxygen;
     public float maxOxygen = 1000f;
-    public Transform oxygenBar;
     public float oxygenConsumptionRate = 1f;
     public float sprintOxygenConsumption = 5f;
     public float suffocationDamage = 2f;
@@ -208,7 +206,7 @@ public class PlayerController : MonoBehaviour
         {
             oxygen = 0;
             health -= suffocationDamage * Time.deltaTime;
-            healthVisuals.UpdateHealthImage(health/maxHealth);
+            healthVisuals.UpdateHealthImage(health / maxHealth);
         }
         else
         {
@@ -282,10 +280,11 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
-    public void TakeDamage(float dmg){
+    public void TakeDamage(float dmg)
+    {
         health -= dmg;
-        healthVisuals.UpdateHealthImage(health/maxHealth);
-        soundManager.PlayOneShotRandomPitch("playerHurt",0.1f);
+        healthVisuals.UpdateHealthImage(health / maxHealth);
+        soundManager.PlayOneShotRandomPitch("playerHurt", 0.1f);
     }
 
     private void GasDamage()

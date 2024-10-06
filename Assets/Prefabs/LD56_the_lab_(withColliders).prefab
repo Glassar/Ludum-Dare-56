@@ -1018,7 +1018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482641a36e1a94c46ae4fdfab02232c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipA: Somnum Device Requires Fuel
+  tooltipA:
+  - 'Somnum Device Requires '
+  - ' Fuel'
   tooltipB: Enter Somnum Device
   highlightColor: {r: 0.26455146, g: 0.3180319, b: 0.38679248, a: 1}
   maxTimeOut: 0.1
@@ -1063,6 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc9a4257556fa14e8c3b7f73f36dc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltip: Enter the Subway
   highlightColor: {r: 0.3448736, g: 0.3982734, b: 0.4716981, a: 1}
   maxTimeOut: 0.1
   tpTarget: {fileID: 0}

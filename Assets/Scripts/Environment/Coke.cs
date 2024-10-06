@@ -21,7 +21,7 @@ public class Coke : Interactables
     public override void Interact()
     {
         PlayerController.instance.cokes++;
-        Debug.Log("You picked up a coke, you now have " + PlayerController.instance.cokes);
+        TooltipHandler.instance.UpdateTooltip("");
         Destroy(gameObject);
     }
 
@@ -35,15 +35,19 @@ public class Coke : Interactables
 
     void Update()
     {
-        if (timeOut > 0 && highlighted)
+        if (highlighted)
         {
-            timeOut -= Time.deltaTime;
+            if (timeOut > 0)
+            {
+                timeOut -= Time.deltaTime;
+            }
+            else
+            {
+                TooltipHandler.instance.UpdateTooltip("");
+                highlighted = false;
+                mesh.material = defaultColor;
+            }
         }
-        else
-        {
-            TooltipHandler.instance.UpdateTooltip("");
-            highlighted = false;
-            mesh.material = defaultColor;
-        }
+
     }
 }
