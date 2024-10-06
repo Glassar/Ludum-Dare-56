@@ -16,7 +16,6 @@ public class TooltipHandler : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(instance);
         }
     }
 
