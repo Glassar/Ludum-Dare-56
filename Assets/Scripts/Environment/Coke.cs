@@ -1,9 +1,11 @@
 using System;
+using Rellac.Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Coke : Interactables
 {
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private string tooltip = "Pick up Carbonated BioFuel™";
     private Material defaultColor;
     public Material highlightColor;
@@ -20,9 +22,10 @@ public class Coke : Interactables
     }
     public override void Interact()
     {
+        soundManager.PlayOneShotRandomPitch("pickup", 0.05f);
         PlayerController.instance.cokes++;
         TooltipHandler.instance.UpdateTooltip("");
-        Destroy(gameObject);
+        Destroy(gameObject,0.1f);
     }
 
     public override void Highlight()

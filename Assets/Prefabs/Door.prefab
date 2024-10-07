@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f40d83f110cd847b1647127634ead9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 11400000, guid: 4f2f8e048e23f17419ec879739053515, type: 2}
+  tooltipOpen: Open Door
+  tooltipClose: Close Door
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   maxTimeOut: 0.1
   openAngle: 90

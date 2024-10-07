@@ -1,8 +1,10 @@
 using System;
+using Rellac.Audio;
 using UnityEngine;
 
 public class Door : Interactables
 {
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private string tooltipOpen = "Open Door";
     [SerializeField] private string tooltipClose = "Close Door";
     private Color defaultColor;
@@ -15,6 +17,7 @@ public class Door : Interactables
 
     public float openAngle = 90;
     private int direction = -1;
+    private bool open = false;
 
     void Start()
     {
@@ -23,8 +26,10 @@ public class Door : Interactables
     }
     public override void Interact()
     {
+        if (open) soundManager.PlayOneShotRandomPitch("doorOpen", 0.05f);
+        else soundManager.PlayOneShotRandomPitch("doorClose", 0.05f);
         direction = -direction;
-
+        open = !open;
         Vector3 angle = transform.localRotation.eulerAngles;
         transform.localRotation = Quaternion.Euler(angle.x, angle.y + direction * openAngle, angle.z);
     }

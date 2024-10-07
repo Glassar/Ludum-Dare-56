@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff386fd28c0280419ffc266f3a5a120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 11400000, guid: 4f2f8e048e23f17419ec879739053515, type: 2}
   tooltip: "Pick up Carbonated BioFuel\u2122"
   highlightColor: {fileID: 2100000, guid: 9e040743514b205468ce948a60a68974, type: 2}
   maxTimeOut: 0.1

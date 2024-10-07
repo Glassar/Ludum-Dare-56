@@ -45,7 +45,9 @@ MonoBehaviour:
   - id: coughing
     mixer: {fileID: -6171985810068068871, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
-    - {fileID: 8300000, guid: b079b9226dde6984189a1e7eb408f32b, type: 3}
+    - {fileID: 8300000, guid: 66123c0b5ff192645bf1cbb0f7444ba6, type: 3}
+    - {fileID: 8300000, guid: 8009349e51d05134ab7bbe8a10faf799, type: 3}
+    - {fileID: 8300000, guid: ad152b1d0f5f49342946df2409f98093, type: 3}
   - id: playerHurt
     mixer: {fileID: -2620869430537322432, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
@@ -61,12 +63,32 @@ MonoBehaviour:
   - id: crawlerAttack
     mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
-    - {fileID: 8300000, guid: bb9de45d718aae542ad4d4fecc779c3f, type: 3}
+    - {fileID: 8300000, guid: 210d70e12f57463409804d0204019703, type: 3}
   - id: crawlerDeath
     mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
-    - {fileID: 8300000, guid: bb9de45d718aae542ad4d4fecc779c3f, type: 3}
+    - {fileID: 8300000, guid: 210d70e12f57463409804d0204019703, type: 3}
   - id: crawlerDamage
+    mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 7aa43b830b2252b4989b06c471f1fbfa, type: 3}
+  - id: barnacleDeath
+    mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 9735b2e23cf89fd408cb644a16679f14, type: 3}
+  - id: doorOpen
+    mixer: {fileID: 1418680999851463936, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: f7f0e9865c51d9c458adbf68fa2bffc0, type: 3}
+  - id: doorClose
+    mixer: {fileID: 1418680999851463936, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 4c728bf75aae53243869eb2519e63833, type: 3}
+  - id: click
+    mixer: {fileID: 2684726614941037587, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
+    clips:
+    - {fileID: 8300000, guid: 33d701f413383dd4f823ccea76586e41, type: 3}
+  - id: barnacleAttack
     mixer: {fileID: -8569255461365993086, guid: 14d8685dc8812f94fa4a49bfd1d0dc14, type: 2}
     clips:
     - {fileID: 8300000, guid: 210d70e12f57463409804d0204019703, type: 3}

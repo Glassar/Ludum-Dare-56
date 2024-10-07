@@ -125,7 +125,8 @@ public class PlayerController : MonoBehaviour
         OxygenController();
 
         Interact();
-        FireGun();
+
+        if (attack.WasPressedThisFrame()) FireGun();
 
         if (canInteractAndShoot)
         {
@@ -319,10 +320,10 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (gunCooldownTimer < gunCooldown)
         {
-
+            soundManager.PlayOneShotRandomPitch("click", 0.02f);
             return;
         }
-        if (attack.WasPressedThisFrame() && oxygen >= oxygenFireCost && canInteractAndShoot)
+        if (oxygen >= oxygenFireCost && canInteractAndShoot)
         {
             gunFireAnim.Play("Base Layer.gunFireAnim");
             soundManager.PlayOneShotRandomPitch("musketFire", 0.1f);

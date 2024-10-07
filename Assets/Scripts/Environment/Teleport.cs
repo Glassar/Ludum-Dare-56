@@ -1,8 +1,10 @@
 using System;
+using Rellac.Audio;
 using UnityEngine;
 
 public class Teleport : Interactables
 {
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private string tooltip = "Enter the Subway";
 
     private Color defaultColor;
@@ -22,6 +24,7 @@ public class Teleport : Interactables
     }
     public override void Interact()
     {
+        soundManager.PlayOneShotRandomPitch("pickup", 0.05f);
         Rigidbody rb = PlayerController.instance.GetComponent<Rigidbody>();
         rb.position = tpTarget.position;
         rb.linearVelocity = Vector3.zero;

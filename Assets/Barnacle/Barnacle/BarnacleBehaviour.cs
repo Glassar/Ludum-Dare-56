@@ -52,6 +52,7 @@ public class BarnacleBehaviour : Enemy
                         player.transform.position = mouth.transform.position; //Make player follow mouth towards "sack" when snatched
                         attackTimer+= Time.deltaTime;
                         if (attackTimer > attackCooldown) {
+                            soundManager.PlayOneShotRandomPitch("barnacleAttack", 0.05f);
                             PlayerController.instance.TakeDamage(attackDamage);
                             attackTimer = 0f;
                         }
@@ -97,13 +98,12 @@ public class BarnacleBehaviour : Enemy
 
     public override void TakeDamage(float dmg) {
         health -= dmg;
-        soundManager.PlayOneShotRandomPitch("crawlerDamage", 0.05f);
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
     private void DestroyEnemy()
     {
-        soundManager.PlayOneShotRandomPitch("crawlerDeath", 0.05f);
+        soundManager.PlayOneShotRandomPitch("barnacleDeath", 0.05f);
         transform.GetComponent<Collider>().enabled = false;
         dead = true;
     }
