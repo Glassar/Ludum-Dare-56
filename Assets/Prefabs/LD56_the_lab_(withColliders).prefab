@@ -790,19 +790,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 28.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.87
+      value: 3.3697045
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -810,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalRotation.z
@@ -822,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -839,7 +839,7 @@ PrefabInstance:
     - target: {fileID: -8143710011712545758, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e9a85dd2f68c03d4a8015f79c8bbc71c, type: 2}
+      objectReference: {fileID: 2100000, guid: cce35e4d4eea67440aa9017a67db67e6, type: 2}
     - target: {fileID: -7918335002988649766, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -956,6 +956,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 4321514657177891973, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a0a9d2aec8a34044b00eafe7ec65591, type: 2}
     - target: {fileID: 5148817236446094103, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -1000,6 +1004,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8567717000986892130, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a0a9d2aec8a34044b00eafe7ec65591, type: 2}
     - target: {fileID: 8700725330082129686, guid: 3eb42ea0d064ae44cb19e8b9038c48a3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -1062,7 +1070,7 @@ MonoBehaviour:
   - 'Somnum Device Requires '
   - ' Fuel'
   tooltipB: Enter Somnum Device
-  highlightColor: {r: 0.26455146, g: 0.3180319, b: 0.38679248, a: 1}
+  highlightColor: {r: 1, g: 0.49477023, b: 0.47358483, a: 1}
   maxTimeOut: 0.1
   cokeCount: 4
 --- !u!136 &7677929614655055840
@@ -1105,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc9a4257556fa14e8c3b7f73f36dc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 11400000, guid: 4f2f8e048e23f17419ec879739053515, type: 2}
   tooltip: Enter the Subway
   highlightColor: {r: 0.3448736, g: 0.3982734, b: 0.4716981, a: 1}
   maxTimeOut: 0.1
