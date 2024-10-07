@@ -7,6 +7,7 @@ public class CrawlerController : Enemy
     public NavMeshAgent agent;
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem bloodParticles;
     private bool isAnimating = false;
     private bool dead = false;
 
@@ -39,6 +40,7 @@ public class CrawlerController : Enemy
     }
 
     public override void TakeDamage(float dmg) {
+        bloodParticles.Play();
         health -= dmg;
         soundManager.PlayOneShotRandomPitch("crawlerDamage", 0.05f);
 
