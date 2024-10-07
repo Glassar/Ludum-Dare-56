@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiny_Barnacle
       objectReference: {fileID: 0}
+    - target: {fileID: 3419539005145187684, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.96
+      objectReference: {fileID: 0}
     - target: {fileID: 3501759462829329300, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.08
@@ -26,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3501759462829329300, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.27977
+      value: -54.93094
       objectReference: {fileID: 0}
     - target: {fileID: 3501759462829329300, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.988
+      value: 3.483
       objectReference: {fileID: 0}
     - target: {fileID: 3501759462829329300, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.034213
+      value: -49.24579
       objectReference: {fileID: 0}
     - target: {fileID: 3501759462829329300, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,6 +67,14 @@ PrefabInstance:
     - target: {fileID: 3501759462829329300, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897838173793439959, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897838173793439959, guid: e8c668eb566e1514ca23f255da6cb89e, type: 3}
+      propertyPath: m_Center.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
