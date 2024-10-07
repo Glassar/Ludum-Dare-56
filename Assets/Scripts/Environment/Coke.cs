@@ -25,7 +25,7 @@ public class Coke : Interactables
         soundManager.PlayOneShotRandomPitch("pickup", 0.05f);
         PlayerController.instance.cokes++;
         TooltipHandler.instance.UpdateTooltip("");
-        Destroy(gameObject,0.1f);
+        Destroy(gameObject);
     }
 
     public override void Highlight()
