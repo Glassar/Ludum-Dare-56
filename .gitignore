@@ -24,6 +24,8 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 /[Aa]ssets/Asset Packs/
+/[Aa]ssets/Scenes/Main Menu/
+/[Aa]ssets/Scenes/Stage 1/
 
 /[Pp]rojectSettings/Packages/com.unity.probuilder/Settings.json
 

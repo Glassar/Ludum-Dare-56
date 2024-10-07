@@ -3423,7 +3423,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9607843, g: 0.6966791, b: 0.03921567, a: 1}
-  m_Intensity: 10
+  m_Intensity: 15
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5239,6 +5239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f40d83f110cd847b1647127634ead9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   tooltipOpen: Open Door
   tooltipClose: Close Door
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
